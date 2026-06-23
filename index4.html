@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Surprise Airways - Spanien 2027</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Orbitron',sans-serif;
+overflow:hidden;
+height:100vh;
+background:#001220;
+color:white;
+}
+
+#background{
+position:fixed;
+width:100%;
+height:100%;
+background:
+linear-gradient(
+to bottom,
+#001220 0%,
+#073b68 45%,
+#ff9f43 100%
+);
+z-index:-10;
+}
+
+#sun{
+position:absolute;
+right:10%;
+bottom:80px;
+width:260px;
+height:260px;
+background:#ffd166;
+border-radius:50%;
+box-shadow:0 0 120px #ffd166;
+}
+
+.palm{
+position:absolute;
+bottom:0;
+font-size:180px;
+opacity:.2;
+}
+
+.left{
+left:-30px;
+}
+
+.right{
+right:-30px;
+}
+
+#plane{
+position:absolute;
+font-size:60px;
+left:-100px;
+top:120px;
+animation:fly 12s linear infinite;
+}
+
+@keyframes fly{
+
+0%{
+left:-100px;
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-30px);
+}
+
+100%{
+left:120%;
+transform:translateY(0);
+}
+
+}
+
+.screen{
+height:100vh;
+width:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hidden{
+display:none !important;
+}
+
+.logo{
+font-size:3rem;
+font-weight:900;
+margin-bottom:20px;
+letter-spacing:4px;
+}
+
+.subtitle{
+font-size:1.2rem;
+line-height:1.8;
+max-width:700px;
+margin-bottom:35px;
+}
+
+button{
+padding:18px 40px;
+border:none;
+border-radius:10px;
+background:#ffd166;
+color:#111;
+font-weight:bold;
+font-size:1rem;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+#countdown{
+font-size:9rem;
+font-weight:900;
+color:#ffd166;
+text-shadow:
+0 0 20px rgba(255,209,102,.7),
+0 0 60px rgba(255,209,102,.5);
+}
+
+#countLabel{
+margin-top:20px;
+font-size:1.3rem;
+letter-spacing:3px;
+}
+
+#drumText{
+margin-top:25px;
+font-size:2rem;
+color:#ff5757;
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.08);
+}
+}
+
+#reveal{
+background:
+radial-gradient(circle,#102542 0%,#020d18 100%);
+}
+#country{
+font-size:7rem;
+font-weight:900;
+opacity:0;
+text-shadow:
+0 0 30px #ffd166,
+0 0 60px #ffd166,
+0 0 100px #ff9f43;
+}
+
+.countryReveal{
+animation:
+appear 1.5s ease forwards,
+breathingZoom 2s ease-in-out infinite;
+}
+
+@keyframes appear{
+
+0%{
+transform:scale(0);
+opacity:0;
+}
+
+100%{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+@keyframes breathingZoom{
+
+0%{
+transform:scale(1);
+}
+
+25%{
+transform:scale(1.25);
+}
+
+50%{
+transform:scale(1);
+}
+
+75%{
+transform:scale(1.3);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+#countrySub{
+font-size:2rem;
+margin-top:30px;
+line-height:1.8;
+font-weight:bold;
+}
+
+#ticket{
+display:none;
+background:white;
+color:#111;
+width:min(900px,90%);
+border-radius:25px;
+padding:40px;
+margin-top:40px;
+box-shadow:0 0 60px rgba(0,0,0,.4);
+animation:slideUp 1.5s ease forwards;
+}
+
+@keyframes slideUp{
+
+0%{
+opacity:0;
+transform:translateY(100px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.ticket-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:3px dashed #ccc;
+padding-bottom:20px;
+margin-bottom:25px;
+}
+
+.airline{
+font-size:2rem;
+font-weight:900;
+color:#0c2d57;
+}
+
+.flight{
+font-size:1.1rem;
+}
+
+.ticket-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.ticket-item{
+background:#f4f4f4;
+padding:14px;
+border-radius:10px;
+}
+
+.ticket-label{
+font-size:.8rem;
+color:#777;
+margin-bottom:5px;
+}
+
+.ticket-value{
+font-size:1.1rem;
+font-weight:bold;
+}
+
+.footer{
+margin-top:30px;
+text-align:center;
+font-size:1.3rem;
+font-weight:bold;
+color:#0c2d57;
+}
+
+.confetti{
+position:fixed;
+width:10px;
+height:10px;
+top:-10px;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+to{
+transform:
+translateY(110vh)
+rotate(720deg);
+}
+
+}
+
+@media(max-width:700px){
+
+.logo{
+font-size:2rem;
+}
+
+#countdown{
+font-size:5rem;
+}
+
+#country{
+font-size:4rem;
+}
+
+#countrySub{
+font-size:1.2rem;
+}
+
+.ticket-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div style="
+position:fixed;
+top:20px;
+right:20px;
+z-index:99999;
+">
+    <button onclick="testSound()">
+        🔊 SOUND TEST
+    </button>
+</div>
+
+<div id="background">
+<div id="sun"></div>
+<div class="palm left">🌴</div>
+<div class="palm right">🌴</div>
+</div>
+
+<div id="plane">✈️</div>
+
+<audio id="airplaneAudio"
+       src="sounds/Flugzeug.mp3"
+       preload="auto"
+       loop>
+</audio>
+
+<audio id="drumrollAudio"
+       src="sounds/Trommelwirbel.mp3"
+       preload="auto"
+       loop>
+</audio>
+
+<div style="
+position:fixed;
+top:20px;
+right:20px;
+z-index:99999;
+">
+    <button onclick="testSound()">
+        🔊 SOUND TEST
+    </button>
+</div>
+
+<div id="startScreen" class="screen">
+
+    <div class="logo">
+        ✈ SURPRISE AIRWAYS
+    </div>
+
+    <div class="subtitle">
+        Pascal,<br><br>
+        dein Flug ist bereit.<br>
+        Bitte begib dich zum Gate und entdecke dein Reiseziel.
+    </div>
+
+    <button onclick="startBoarding()">
+        BOARDING STARTEN
+    </button>
+
+</div>
+
+<div id="countdownScreen" class="screen hidden">
+
+    <div id="countdown">30</div>
+
+    <div id="countLabel">
+        REISEZIEL WIRD ERMITTELT...
+    </div>
+
+    <div id="drumText" class="hidden">
+        🥁 SPANNUNG STEIGT...
+    </div>
+
+</div>
+
+<div id="reveal" class="screen hidden">
+
+    <div id="country">
+        🇪🇸 SPANIEN 🇪🇸
+    </div>
+
+    <div id="countrySub">
+        Der Sommer 2027 gehört UNS ...
+        <br><br>
+        🇪🇸 IN SPANIEN ❤️ 🇪🇸
+    </div>
+
+    <div id="ticket">
+
+        <div class="ticket-header">
+
+            <div>
+                <div class="airline">
+                    SURPRISE AIRWAYS
+                </div>
+
+                <div class="flight">
+                    Flugnummer ESP2106
+                </div>
+            </div>
+
+            <div>
+                🎫 BOARDING PASS
+            </div>
+
+        </div>
+
+        <div class="ticket-grid">
+
+            <div class="ticket-item">
+                <div class="ticket-label">PASSAGIER</div>
+                <div class="ticket-value">Pascal R.</div>
+            </div>
+
+            <div class="ticket-item">
+                <div class="ticket-label">BEGLEITUNG</div>
+                <div class="ticket-value">Nick R.</div>
+            </div>
+
+            <div class="ticket-item">
+                <div class="ticket-label">ABFLUG</div>
+                <div class="ticket-value">Deutschland 🇩🇪</div>
+            </div>
+
+            <div class="ticket-item">
+                <div class="ticket-label">ANKUNFT</div>
+                <div class="ticket-value">Spanien 🇪🇸</div>
+            </div>
+
+            <div class="ticket-item">
+                <div class="ticket-label">REISEZEITRAUM</div>
+                <div class="ticket-value">
+                    Verlängertes Wochenende<br>
+                    Sommer 2027 ☀️
+                </div>
+            </div>
+
+            <div class="ticket-item">
+                <div class="ticket-label">SITZPLATZ</div>
+                <div class="ticket-value">
+                    Neben deinem Lieblingscousin
+                </div>
+            </div>
+
+            <div class="ticket-item">
+                <div class="ticket-label">STATUS</div>
+                <div class="ticket-value">
+                    ✓ Bestätigt
+                </div>
+            </div>
+
+            <div class="ticket-item">
+                <div class="ticket-label">GATE</div>
+                <div class="ticket-value">
+                    Werden wir hoffentlich finden 😅
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            ¡Vamos a España! ☀️🍻✈️
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+let seconds = 30;
+let drumStarted = false;
+
+const startScreen =
+document.getElementById("startScreen");
+
+const countdownScreen =
+document.getElementById("countdownScreen");
+
+const revealScreen =
+document.getElementById("reveal");
+
+const countdown =
+document.getElementById("countdown");
+
+const drumText =
+document.getElementById("drumText");
+
+const ticket =
+document.getElementById("ticket");
+
+const airplaneAudio =
+document.getElementById("airplaneAudio");
+
+const drumrollAudio =
+document.getElementById("drumrollAudio");
+
+function startBoarding(){
+
+    startScreen.classList.add("hidden");
+    countdownScreen.classList.remove("hidden");
+
+    airplaneAudio.volume = 0.4;
+
+    airplaneAudio.play().catch(() => {});
+
+    const timer = setInterval(() => {
+
+        seconds--;
+
+        countdown.textContent = seconds;
+
+        if(seconds <= 10 && !drumStarted){
+
+    drumStarted = true;
+
+    // Flugzeug stoppen
+    airplaneAudio.pause();
+    airplaneAudio.currentTime = 0;
+
+    // Trommelwirbel starten
+    drumText.classList.remove("hidden");
+
+    countdown.style.fontSize = "11rem";
+
+    drumrollAudio.volume = 0.8;
+
+    drumrollAudio.play().catch(() => {});
+
+}
+
+        if(seconds <= 0){
+
+            clearInterval(timer);
+
+            showSpain();
+
+        }
+
+    },1000);
+
+}
+
+function showSpain(){
+
+    airplaneAudio.pause();
+    airplaneAudio.currentTime = 0;
+
+    drumrollAudio.pause();
+    drumrollAudio.currentTime = 0;
+
+    countdownScreen.classList.add("hidden");
+
+    revealScreen.classList.remove("hidden");
+
+    createConfetti();
+
+    const country =
+    document.getElementById("country");
+
+    country.classList.add("countryReveal");
+
+    setTimeout(() => {
+
+        ticket.style.display = "block";
+
+    },10000);
+
+}
+
+function createConfetti(){
+
+    for(let i = 0; i < 300; i++){
+
+        const confetti =
+        document.createElement("div");
+
+        confetti.classList.add("confetti");
+
+        confetti.style.left =
+        Math.random()*100 + "vw";
+
+        confetti.style.animationDuration =
+        (Math.random()*3+2) + "s";
+
+        confetti.style.opacity =
+        Math.random();
+
+        confetti.style.background =
+        [
+            "#FFD166",
+            "#EF476F",
+            "#06D6A0",
+            "#118AB2",
+            "#FFFFFF",
+            "#FF9F43"
+        ][Math.floor(Math.random()*6)];
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => {
+
+            confetti.remove();
+
+        },6000);
+
+    }
+
+}
+
+function testSound(){
+
+    airplaneAudio.play();
+
+}
+
+</script>
+
+</body>
+</html>
