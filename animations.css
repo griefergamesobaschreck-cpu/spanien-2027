@@ -1,0 +1,352 @@
+/* ===========================
+   FLUGZEUG
+=========================== */
+
+#plane{
+    animation:planeFly 16s linear infinite;
+}
+
+@keyframes planeFly{
+
+    0%{
+        left:-120px;
+        top:160px;
+        transform:rotate(3deg);
+    }
+
+    25%{
+        top:135px;
+        transform:rotate(-2deg);
+    }
+
+    50%{
+        top:110px;
+        transform:rotate(2deg);
+    }
+
+    75%{
+        top:145px;
+        transform:rotate(-2deg);
+    }
+
+    100%{
+        left:115%;
+        top:120px;
+        transform:rotate(3deg);
+    }
+
+}
+
+/* ===========================
+   WOLKEN
+=========================== */
+
+.cloud1{
+    animation:cloudMove1 45s linear infinite;
+}
+
+.cloud2{
+    animation:cloudMove2 60s linear infinite;
+}
+
+.cloud3{
+    animation:cloudMove3 52s linear infinite;
+}
+
+@keyframes cloudMove1{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(1700px);
+    }
+
+}
+
+@keyframes cloudMove2{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(1900px);
+    }
+
+}
+
+@keyframes cloudMove3{
+
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(1800px);
+    }
+
+}
+
+/* ===========================
+   SONNE
+=========================== */
+
+#sun{
+
+    animation:sunGlow 6s ease-in-out infinite;
+
+}
+
+@keyframes sunGlow{
+
+    0%{
+
+        transform:scale(1);
+
+        box-shadow:0 0 80px #FFD166;
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+        box-shadow:0 0 150px #FFD166;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        box-shadow:0 0 80px #FFD166;
+
+    }
+
+}
+
+/* ===========================
+   WELTKARTE
+=========================== */
+
+#worldMap{
+
+    animation:earthFloat 10s ease-in-out infinite;
+
+}
+
+@keyframes earthFloat{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.02);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ===========================
+   RADAR
+=========================== */
+
+#radar{
+
+    background:
+
+    conic-gradient(
+
+        transparent 0deg,
+
+        rgba(0,255,180,.45) 35deg,
+
+        transparent 60deg
+
+    );
+
+    animation:radarSpin 2.8s linear infinite;
+
+}
+
+@keyframes radarSpin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ===========================
+   SCANNERBALKEN
+=========================== */
+
+#scannerBar{
+
+    animation:scannerPulse 1.5s linear infinite;
+
+}
+
+@keyframes scannerPulse{
+
+    0%{
+
+        filter:brightness(1);
+
+    }
+
+    50%{
+
+        filter:brightness(2);
+
+    }
+
+    100%{
+
+        filter:brightness(1);
+
+    }
+
+}
+
+/* ===========================
+   VERWORFEN
+=========================== */
+
+.rejectAnimation{
+
+    animation:rejectPop .8s ease forwards;
+
+}
+
+@keyframes rejectPop{
+
+    0%{
+
+        transform:scale(4);
+
+        opacity:0;
+
+    }
+
+    60%{
+
+        transform:scale(.9);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+/* ===========================
+   GOLDENER FLASH
+=========================== */
+
+#goldFlash{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle,#FFD166,#ff9f43,transparent);
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+.flashAnimation{
+
+    animation:goldFlash 1.2s ease;
+
+}
+
+@keyframes goldFlash{
+
+    0%{
+
+        opacity:0;
+
+    }
+
+    35%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:0;
+
+    }
+
+}
+
+/* ===========================
+   SPANIEN
+=========================== */
+
+#country{
+
+    animation:countryReveal 2s ease forwards;
+
+}
+
+@keyframes countryReveal{
+
+    0%{
+
+        opacity:0;
+
+        transform:scale(.4);
+
+    }
+
+    60%{
+
+        transform:scale(1.15);
+
+    }
+
+    100%{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
