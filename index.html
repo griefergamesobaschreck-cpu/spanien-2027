@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Surprise Airways – Spanien 2027</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="animations.css">
+
+</head>
+
+<body>
+
+<div id="background">
+
+    <div id="sun"></div>
+
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+
+    <div class="palm left">🌴</div>
+    <div class="palm right">🌴</div>
+
+</div>
+
+<div id="plane">
+    ✈️
+</div>
+
+<audio id="airplaneAudio" src="sounds/Flugzeug.mp3"></audio>
+<audio id="drumrollAudio" src="sounds/Trommelwirbel.mp3"></audio>
+
+<!-- ========================= -->
+<!-- STARTSCREEN -->
+<!-- ========================= -->
+
+<section id="startScreen" class="screen">
+
+    <div class="logo">
+
+        ✈ SURPRISE AIRWAYS
+
+    </div>
+
+    <div class="subtitle">
+
+        Pascal,
+
+        <br><br>
+
+        dein Flug ist bereit.
+
+        <br>
+
+        Bitte begib dich zum Gate.
+
+        <br><br>
+
+        Das endgültige Reiseziel wird während des Fluges ermittelt.
+
+    </div>
+
+    <button id="startButton">
+
+        BOARDING STARTEN
+
+    </button>
+
+</section>
+
+<!-- ========================= -->
+<!-- COUNTDOWN -->
+<!-- ========================= -->
+
+<section id="countdownScreen" class="screen hidden">
+
+    <div id="countdown">
+
+        30
+
+    </div>
+
+    <div id="countLabel">
+
+        SYSTEM WIRD INITIALISIERT...
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- DESTINATION SCANNER -->
+<!-- ========================= -->
+
+<section id="scannerScreen" class="screen hidden">
+
+    <div id="hud">
+
+        SURPRISE AIRWAYS
+
+    </div>
+
+    <div id="hudSub">
+
+        Destination Scanner v2.0
+
+    </div>
+
+    <div id="worldContainer">
+
+        <img
+            id="worldMap"
+            src="images/world.png"
+            alt="World Map">
+
+        <div id="radar"></div>
+
+        <div id="flightRoute"></div>
+
+        <div id="marker"></div>
+
+    </div>
+
+    <div id="scannerHeadline">
+
+        Initialisiere Scanner...
+
+    </div>
+
+    <div id="scannerText">
+
+        Bitte warten...
+
+    </div>
+
+    <div id="scannerProgress">
+
+        <div id="scannerBar"></div>
+
+    </div>
+
+    <div id="rejectOverlay">
+
+        VERWORFEN
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- SPAIN REVEAL -->
+<!-- ========================= -->
+
+<section id="revealScreen" class="screen hidden">
+
+    <div id="goldFlash"></div>
+
+    <div id="country">
+
+        🇪🇸
+
+        <br>
+
+        SPANIEN
+
+    </div>
+
+    <div id="countrySubtitle">
+
+        Das genaue Urlaubsziel bleibt
+
+        <br>
+
+        noch geheim.
+
+    </div>
+
+    <div id="ticketButton">
+
+        BOARDING PASS
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- BOARDING PASS -->
+<!-- ========================= -->
+
+<section id="ticketScreen" class="screen hidden">
+
+    <div id="ticket">
+
+        <div class="ticketHeader">
+
+            <div>
+
+                <h2>Surprise Airways</h2>
+
+                <p>Business Class</p>
+
+            </div>
+
+            <div>
+
+                ESP2106
+
+            </div>
+
+        </div>
+
+        <div class="ticketBody">
+
+            <div>
+
+                <strong>Passagier</strong>
+
+                <br>
+
+                Pascal Röder
+
+            </div>
+
+            <div>
+
+                <strong>Begleitung</strong>
+
+                <br>
+
+                Nick Röder
+
+            </div>
+
+            <div>
+
+                <strong>Abflug</strong>
+
+                <br>
+
+                Deutschland
+
+            </div>
+
+            <div>
+
+                <strong>Ziel</strong>
+
+                <br>
+
+                Spanien 🇪🇸
+
+            </div>
+
+            <div>
+
+                <strong>Gate</strong>
+
+                <br>
+
+                Noch nicht bekannt
+
+            </div>
+
+            <div>
+
+                <strong>Status</strong>
+
+                <br>
+
+                Bestätigt ✔
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script src="script.js"></script>
+<script src="scanner.js"></script>
+
+</body>
+</html>
